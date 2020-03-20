@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 
-## Core
+## Core library <a id="core"></a>
 
 * [Installation](core/installation.md)
 * [Standards](core/standards.md)

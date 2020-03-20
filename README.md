@@ -1,35 +1,82 @@
 # Introduction
 
-## Getting Super Powers
+Secure-rm is composed of two parts: a [Node.js module](core/installation.md) with a straightforward API and a command line interface optimized to delete files on the fly.
+
+When you delete a file using the `rm` UNIX command or `fs.unlink` in node, it only removes direct pointers to the data disk sectors and make the data recovery possible with common software tools.
+
+Permanent data erasure goes beyond basic file deletion commands, which:
+
+1. Allow for selection of a specific standard, based on unique needs,
+2. Verify the overwriting method has been successful and removed data across the entire device.
+
+## How It Works
+
+The basic principle is to write files before deletion in order to make recovery harder. With secure-rm, you get to choose the standard that follow your needs. Each one is composed of instructions about how many passes it should perform.
+
+It goes from a simple pass of zeros to a 35 passes algorithm. Secure-rm comes with its own algorithm to ensure your data is safe:
+
+* A pass of cryptographically strong pseudo-random data,
+* The file is then renamed,
+* And finally truncated to hide the file size.
+
+## Features
+
+**With each tool**
+
+* [Choose your standard](core/standards.md)
+
+**Core library**
+
+* [Create your own standard](core/custom-standard.md)
+  * [using files method](core/unlink-methods.md)
+  * [or directories ones](core/rmdir-methods.md)
+* Use options to configure the behavior
+* [Use events to follow the progression with huge files](core/events.md)
+
+## Getting Secure-rm
 
 Becoming a super hero is a fairly straight forward process:
 
 ```
-$ give me super-powers
+$ yarn add secure-rm
+// or
+$ npm install secure-rm
 ```
-
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
 
 {% tabs %}
-{% tab title="First Tab" %}
+{% tab title="Promise" %}
+```javascript
+const srm = require('secure-rm')
 
+srm('./folder/*.js')
+  .then(() => console.log('Files successfully deleted !'))
+  .catch((err) => {throw err})
+```
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Callback" %}
+```javascript
+const srm = require('secure-rm')
 
+srm('./folder/*.js', (err) => {
+  if (err) throw err
+  console.log('Files successfully deleted !')
+})
+```
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+ The `secure-rm` module does not come with the CLI, you have to install it separately.
+{% endhint %}
 
+```bash
+$ yarn global add secure-rm-cli
+// or
+$ npm install secure-rm-cli -g
+```
+
+```bash
+$ secure-rm ./your-folder/*.js
+```
 

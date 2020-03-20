@@ -23,9 +23,9 @@ srm('./data/*.js', options, (err) => {
 
 Returns targeted files without deleting them.
 
-| ID        | Passes |
-| :-------- | -----: |
-| `preview` |    `1` |
+| ID | Passes |
+| :--- | ---: |
+| `preview` | `1` |
 
 ```javascript
 {
@@ -42,9 +42,9 @@ Returns targeted files without deleting them.
 
 Also kwown as "Australian Information Security Manual Standard ISM 6.2.92" and "New Zealand Information and Communications Technology Standard NZSIT 402". Your data is overwritten with cryptographically strong pseudo-random data. \(The data is indistinguishable from random noise.\)
 
-| ID           | Passes |
-| :----------- | -----: |
-| `randomData` |    `1` |
+| ID | Passes |
+| :--- | ---: |
+| `randomData` | `1` |
 
 ```javascript
 {
@@ -58,9 +58,9 @@ Also kwown as "Australian Information Security Manual Standard ISM 6.2.92" and "
 
 Overwriting with a random byte.
 
-| ID           | Passes |
-| :----------- | -----: |
-| `randomByte` |    `1` |
+| ID | Passes |
+| :--- | ---: |
+| `randomByte` | `1` |
 
 ```javascript
 {
@@ -74,9 +74,9 @@ Overwriting with a random byte.
 
 Overwriting with zeroes.
 
-| ID       | Passes |
-| :------- | -----: |
-| `zeroes` |    `1` |
+| ID | Passes |
+| :--- | ---: |
+| `zeroes` | `1` |
 
 ```javascript
 {
@@ -90,9 +90,9 @@ Overwriting with zeroes.
 
 Overwriting with ones.
 
-| ID     | Passes |
-| :----- | -----: |
-| `ones` |    `1` |
+| ID | Passes |
+| :--- | ---: |
+| `ones` | `1` |
 
 ```javascript
 {
@@ -110,9 +110,9 @@ Pass 2: Renaming the file with random data;
 
 Pass 3: Truncating between 25% and 75% of the file.
 
-| ID       | Passes |
-| :------- | -----: |
-| `secure` |    `3` |
+| ID | Passes |
+| :--- | ---: |
+| `secure` | `3` |
 
 ```javascript
 {
@@ -130,9 +130,9 @@ Pass 1: Overwriting with zeroes;
 
 Pass 2: Overwriting with random data.
 
-| ID               | Passes |
-| :--------------- | -----: |
-| `GOST_R50739-95` |    `2` |
+| ID | Passes |
+| :--- | ---: |
+| `GOST_R50739-95` | `2` |
 
 ```javascript
 {
@@ -153,9 +153,9 @@ Pass 2: Overwriting with ones;
 
 Pass 3: Overwriting with random data as well as verifying the writing of this data.
 
-| ID        | Passes |
-| :-------- | -----: |
-| `HMG_IS5` |    `3` |
+| ID | Passes |
+| :--- | ---: |
+| `HMG_IS5` | `3` |
 
 ```javascript
 {
@@ -175,9 +175,9 @@ Pass 2: Overwriting with a random byte;
 
 Pass 3: Overwriting with the complement of the 2nd pass, and verifying the writing.
 
-| ID         | Passes |
-| :--------- | -----: |
-| `AR380-19` |    `3` |
+| ID | Passes |
+| :--- | ---: |
+| `AR380-19` | `3` |
 
 ```javascript
 {
@@ -201,9 +201,9 @@ Pass 3-6: Same as 1-2;
 
 Pass 7: Overwriting with a random data as well as review the writing of this character.
 
-| ID      | Passes |
-| :------ | -----: |
-| `VSITR` |    `7` |
+| ID | Passes |
+| :--- | ---: |
+| `VSITR` | `7` |
 
 ```javascript
 {
@@ -227,9 +227,9 @@ Pass 2: Overwriting with ones;
 
 Pass 3-7: Overwriting with random data.
 
-| ID           | Passes |
-| :----------- | -----: |
-| `randomByte` |    `7` |
+| ID | Passes |
+| :--- | ---: |
+| `randomByte` | `7` |
 
 ```javascript
 {
@@ -245,9 +245,9 @@ Pass 3-7: Overwriting with random data.
 
 Pass 1-33: Overwriting with random data.
 
-| ID         | Passes |
-| :--------- | -----: |
-| `pfitzner` |   `33` |
+| ID | Passes |
+| :--- | ---: |
+| `pfitzner` | `33` |
 
 ```javascript
 {
@@ -277,9 +277,9 @@ Pass 29-31: Overwriting with 0x6D 0xB6 0xDB, then cycling through the bytes;
 Pass 32-35: Overwriting with random data.
 {% endhint %}
 
-| ID        | Passes |
-| :-------- | -----: |
-| `gutmann` |   `35` |
+| ID | Passes |
+| :--- | ---: |
+| `gutmann` | `35` |
 
 ```javascript
 {
