@@ -35,11 +35,9 @@ It goes from a simple pass of zeros to a 35 passes algorithm. Secure-rm comes wi
 
 ## Getting Secure-rm
 
-Becoming a super hero is a fairly straight forward process:
-
-```
+```bash
 $ yarn add secure-rm
-// or
+# or
 $ npm install secure-rm
 ```
 
@@ -72,7 +70,7 @@ srm('./folder/*.js', (err) => {
 
 ```bash
 $ yarn global add secure-rm-cli
-// or
+# or
 $ npm install secure-rm-cli -g
 ```
 

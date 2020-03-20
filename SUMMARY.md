@@ -12,5 +12,8 @@
 * [Events](core/events.md)
 * [Troubleshooting](core/troubleshooting.md)
 * [About](about.md)
-* [index](untitled.md)
+
+## CLI
+
+* [Untitled](cli/untitled.md)
 
