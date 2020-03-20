@@ -11,4 +11,6 @@
 * [RmDir Methods](core/rmdir-methods.md)
 * [Events](core/events.md)
 * [Troubleshooting](core/troubleshooting.md)
+* [About](about.md)
+* [index](untitled.md)
 
