@@ -1,8 +1,10 @@
+---
+description: The Unlink object helps you create your own custom unlink method.
+---
+
 # Unlink Methods
 
-The `Unlink` object helps you create your own custom unlink method.
-
-## Usage
+## 📘 Usage
 
 Invoke it and chain the methods:
 
@@ -12,7 +14,9 @@ new srm.Unlink()
   .unlink()
 ```
 
-::: warning Unless you know what you’re doing, always end with `.unlink()`. :::
+{% hint style="danger" %}
+Unless you know what you’re doing, always end with `.unlink()`.
+{% endhint %}
 
 ## log\(\)
 

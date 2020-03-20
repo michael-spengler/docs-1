@@ -1,8 +1,10 @@
+---
+description: The RmDir object helps you create your own custom unlink method.
+---
+
 # RmDir Methods
 
-The `RmDir` object helps you create your own custom unlink method.
-
-## Usage
+## 📘 Usage
 
 Invoke it and chain the methods:
 
@@ -12,7 +14,9 @@ new srm.RmDir()
   .rmDir()
 ```
 
-::: warning Unless you know what you’re doing, always end with `.rmDir()`. :::
+{% hint style="danger" %}
+Unless you know what you’re doing, always end with `.rmDir()`.
+{% endhint %}
 
 ## log\(\)
 

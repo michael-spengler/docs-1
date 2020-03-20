@@ -6,7 +6,7 @@ description: >-
 
 # Standards
 
-## 📕Usage
+## 📘Usage
 
 ```javascript
 const options = {

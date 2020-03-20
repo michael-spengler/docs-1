@@ -1,8 +1,12 @@
+---
+description: >-
+  You have the possibility to create your own standard by chaining differents
+  methods. You can even add your own function with then.
+---
+
 # Custom Standard
 
-You have the possibility to create your own standard by chaining differents methods. You can even add your own function with `then`.
-
-## Usage
+## 📘 Usage
 
 ```javascript
 const unlinkStandard = new srm.Unlink()
@@ -36,9 +40,11 @@ srm('./*', options, (err, fileTree) => {
 })
 ```
 
-Use the classes `Unlink` and `rmDir`\] to construct your standard. Browse all the functions here: [Unlink Methods](unlink-methods.md), [RmDir Methods](rmdir-methods.md).
+Use the classes `Unlink` and `rmDir` to construct your standard. Browse all the functions here:
 
-{% page-ref page="untitled.md" %}
+{% page-ref page="unlink-methods.md" %}
+
+{% page-ref page="rmdir-methods.md" %}
 
 Another possibility is to add your standard to the `srm.standards` object to retrieve it at any time and add properties:
 
