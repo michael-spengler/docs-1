@@ -1,25 +1,8 @@
 # Advanced
 
-
-
 ## The `srm` Object
 
-When you import the library, you can do this in two different ways:
-
-```javascript
-const srm = require('secure-rm')
-```
-
-And then get the properties:
-
-```javascript
-srm.event
-srm.Unlink
-srm.validIDs
-// ...
-```
-
-Or you can import each property:
+You can import each property individually:
 
 {% tabs %}
 {% tab title="ES6" %}
@@ -30,17 +13,26 @@ import srm, { event, /* ... */, validIDs, Standard } from 'secure-rm'
 
 {% tab title="CommonJS" %}
 ```javascript
-const { event, /* ... */, validIDs, Standard } = require('secure-rm')
+const srm, { event, /* ... */, validIDs, Standard } = require('secure-rm')
 ```
 {% endtab %}
 {% endtabs %}
 
-`srm` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) : The main function, as described [under]().
+Or get the properties from `srm`:
 
-* `event` [\](https://nodejs.org/dist/latest-v12.x/docs/api/events.html) : event object to follow the process, See \[\[Events\]\];
-* `Unlink` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) : the class to create and compile unlink standards. See \[\[Unlink Methods\]\];
-* `RmDir` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) : the class to create and compile rmDir standards. See \[\[RmDir Methods\]\];
-* `Standard` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) : the class to create and compile standards. See \[\[Standards\]\] and \[\[Custom Standard\]\];
+```javascript
+srm.event
+srm.Unlink
+srm.validIDs
+// ...
+```
+
+`srm` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) : The main function, as described under.
+
+* `event` [\](https://nodejs.org/dist/latest-v12.x/docs/api/events.html) : event object to follow the process. See [Events](events.md);
+* `Unlink` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) : the class to create and compile unlink standards. See [Unlink Methods](custom-standard/unlink-methods.md);
+* `RmDir` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) : the class to create and compile rmDir standards. See [RmDir Methods](custom-standard/rmdir-methods.md);
+* `Standard` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) : the class to create and compile standards. See [Standards](standards.md) and [Custom Standard](custom-standard/);
 * `validIDs` [Array\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type) : array containing valid text IDs of standards;
 * `standards` [\Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) : the object containing default standards.
 

@@ -47,7 +47,7 @@ srm('./folder/*.js', (err) => {
 {% endtab %}
 {% endtabs %}
 
-## ⚙ Using options
+## ⚙️Using options
 
 You can set options in the `srm` function:
 
@@ -121,7 +121,8 @@ srm('./trash/dir/', { standard: 'preview' }, (err, fileTree) => {
 ```javascript
 const options = {
   maxBusyTries: 5,
-  disableGlob: true
+  disableGlob: true,
+  customStandard: new srm.Standard(/*...*/)
 }
 
 srm('./data/*.js', options)
@@ -145,17 +146,23 @@ srm('./data/*.js', options, (err) => {
 {% endtab %}
 {% endtabs %}
 
-**emfileWait**
+#### **emfileWait**
 
 If an `EBUSY`, `ENOTEMPTY`, or `EPERM` error code is encountered on Windows systems, then secure-rm will retry with a linear backoff wait of 100ms longer on each try. The default maxBusyTries is 3.
 
-**disableGlob**
+#### **disableGlob**
 
 Set to any non-falsey value to disable globbing entirely.
 
+#### **customStandard**
+
+Create your own standard using the different methods provided or even your own.
+
+{% page-ref page="custom-standard/" %}
+
 ## 📜 [Changelog](https://github.com/secure-rm/core/blob/master/CHANGELOG.md) / [Releases](https://github.com/secure-rm/core/releases)
 
-## 🏗 Contributing
+## 🏗️ Contributing
 
  [![Dependencies](https://img.shields.io/librariesio/release/npm/secure-rm?style=flat-square&logo=npm)](https://libraries.io/npm/secure-rm) ![Contributors](https://img.shields.io/github/contributors/secure-rm/core?style=flat-square) ![Last commit](https://img.shields.io/github/last-commit/secure-rm/core/develop?style=flat-square) ![npm collaborators](https://img.shields.io/npm/collaborators/secure-rm?style=flat-square)
 
