@@ -6,9 +6,9 @@
 
 * [Installation](core/installation.md)
 * [Standards](core/standards.md)
-* [Custom Standard](core/custom-standard.md)
-* [Unlink Methods](core/unlink-methods.md)
-* [RmDir Methods](core/rmdir-methods.md)
+* [Custom Standard](core/custom-standard/README.md)
+  * [Unlink Methods](core/custom-standard/unlink-methods.md)
+  * [RmDir Methods](core/custom-standard/rmdir-methods.md)
 * [Events](core/events.md)
 * [Troubleshooting](core/troubleshooting.md)
 

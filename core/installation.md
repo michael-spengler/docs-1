@@ -39,8 +39,6 @@ srm('./folder/*.js')
 
 {% tab title="Callback" %}
 ```javascript
-const srm = require('secure-rm')
-
 srm('./folder/*.js', (err) => {
   if (err) throw err
   console.log('Files successfully deleted !')

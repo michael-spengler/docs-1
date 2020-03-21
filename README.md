@@ -29,9 +29,9 @@ It goes from a simple pass of zeros to a 35 passes algorithm. Secure-rm comes wi
 
 **Core library**
 
-* [Create your own standard](core/custom-standard.md)
-  * [using files method](core/unlink-methods.md)
-  * [or directories ones](core/rmdir-methods.md)
+* [Create your own standard](core/custom-standard/)
+  * [using files method](core/custom-standard/unlink-methods.md)
+  * [or directories ones](core/custom-standard/rmdir-methods.md)
 * Use options to configure the behavior
 * [Use events to follow the progression with huge files](core/events.md)
 
