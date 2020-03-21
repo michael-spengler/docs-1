@@ -4,8 +4,9 @@
 
 ## Core library <a id="core"></a>
 
-* [Getting Started](core/installation.md)
+* [Getting Started](core/getting-started.md)
 * [Standards](core/standards.md)
+* [Advanced](core/advanced.md)
 * [Custom Standard](core/custom-standard/README.md)
   * [Unlink Methods](core/custom-standard/unlink-methods.md)
   * [RmDir Methods](core/custom-standard/rmdir-methods.md)

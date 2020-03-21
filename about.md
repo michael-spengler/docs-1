@@ -4,3 +4,5 @@
 
 ![](https://img.icons8.com/color/50/000000/vue-js.png) Static Site Generator by [VuePress](https://vuepress.vuejs.org/).
 
+This project is under [MIT License](https://github.com/secure-rm/core/blob/master/LICENSE).
+
