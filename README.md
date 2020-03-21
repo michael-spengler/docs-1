@@ -1,5 +1,7 @@
 # Introduction
 
+![](.gitbook/assets/card.png)
+
 Secure-rm is composed of two parts: a [Node.js module](core/installation.md) with a straightforward API and a command line interface optimized to delete files on the fly.
 
 When you delete a file using the `rm` UNIX command or `fs.unlink` in node, it only removes direct pointers to the data disk sectors and make the data recovery possible with common software tools.
