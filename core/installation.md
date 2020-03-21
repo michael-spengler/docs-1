@@ -1,16 +1,18 @@
-# Installation
+# Getting Started
+
+{% hint style="info" %}
+[Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/) required.
+{% endhint %}
 
 ## 📦 Installation
 
-[Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) required.
-
 ```bash
-npm install secure-rm
+$ yarn add secure-rm
+# or
+$ npm install secure-rm
 ```
 
-Looking for a **command-line interface**? [Click here.](https://www.npmjs.com/package/secure-rm-cli)
-
-## 🚀 Getting started
+## 🚀 Quick Start
 
 If you want your application to delete specific files with a pass of cryptographically strong pseudo-random data, use one of these code snippets:
 

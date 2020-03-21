@@ -4,7 +4,7 @@
 
 ## Core library <a id="core"></a>
 
-* [Installation](core/installation.md)
+* [Getting Started](core/installation.md)
 * [Standards](core/standards.md)
 * [Custom Standard](core/custom-standard/README.md)
   * [Unlink Methods](core/custom-standard/unlink-methods.md)

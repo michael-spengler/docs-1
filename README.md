@@ -37,46 +37,7 @@ It goes from a simple pass of zeros to a 35 passes algorithm. Secure-rm comes wi
 
 ## Getting Secure-rm
 
-```bash
-$ yarn add secure-rm
-# or
-$ npm install secure-rm
-```
-
-{% tabs %}
-{% tab title="Promise" %}
-```javascript
-const srm = require('secure-rm')
-
-srm('./folder/*.js')
-  .then(() => console.log('Files successfully deleted !'))
-  .catch((err) => {throw err})
-```
-{% endtab %}
-
-{% tab title="Callback" %}
-```javascript
-const srm = require('secure-rm')
-
-srm('./folder/*.js', (err) => {
-  if (err) throw err
-  console.log('Files successfully deleted !')
-})
-```
-{% endtab %}
-{% endtabs %}
-
 {% hint style="info" %}
  The `secure-rm` module does not come with the CLI, you have to install it separately.
 {% endhint %}
-
-```bash
-$ yarn global add secure-rm-cli
-# or
-$ npm install secure-rm-cli -g
-```
-
-```bash
-$ secure-rm ./your-folder/*.js
-```
 
