@@ -47,6 +47,8 @@ srm('./folder/*.js', (err) => {
 {% endtab %}
 {% endtabs %}
 
+Path can be a directory, a file or a [glob pattern](https://www.npmjs.com/package/glob). Match files using the patterns the shell uses, like stars and stuff.
+
 ## ⚙️Using options
 
 You can set options in the `srm` function:
