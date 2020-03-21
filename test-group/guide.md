@@ -1,4 +1,4 @@
-# gitbook
+# Guide
 
 ## Getting Super Powers
 

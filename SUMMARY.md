@@ -1,19 +1,11 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [gitbook](README.md)
 
-## Core library <a id="core"></a>
+## test group
 
-* [Installation](core/installation.md)
-* [Standards](core/standards.md)
-* [Custom Standard](core/custom-standard.md)
-* [Unlink Methods](core/unlink-methods.md)
-* [RmDir Methods](core/rmdir-methods.md)
-* [Events](core/events.md)
-* [Troubleshooting](core/troubleshooting.md)
-* [About](about.md)
-
-## CLI
-
-* [Untitled](cli/untitled.md)
+* [Guide](test-group/guide.md)
+* [API](test-group/api.md)
+* [changelog](test-group/changelog.md)
+* [FAQ](test-group/faq.md)
 
