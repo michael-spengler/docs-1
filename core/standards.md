@@ -259,7 +259,6 @@ Pass 1-33: Overwriting with random data.
 
 ### Peter Gutmann Algorithm
 
-{% hint style="info" %}
 Pass 1-4: Overwriting with random data;
 
 Pass 5: Overwriting with 0x55;
@@ -275,7 +274,6 @@ Pass 26-28: Same as 7-9;
 Pass 29-31: Overwriting with 0x6D 0xB6 0xDB, then cycling through the bytes;
 
 Pass 32-35: Overwriting with random data.
-{% endhint %}
 
 | ID | Passes |
 | :--- | ---: |
