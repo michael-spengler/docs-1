@@ -12,6 +12,7 @@
 * [Events](core/events.md)
 * [Troubleshooting](core/troubleshooting.md)
 * [About](about.md)
+* [Back to main website](https://www.secure-rm.com)
 
 ## CLI
 
