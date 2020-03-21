@@ -14,8 +14,30 @@ Looking for a **command-line interface**? [Click here.](https://www.npmjs.com/pa
 
 If you want your application to delete specific files with a pass of cryptographically strong pseudo-random data, use one of these code snippets:
 
-### Callback version
+{% tabs %}
+{% tab title="ES6" %}
+```javascript
+import srm from 'secure-rm'
+```
+{% endtab %}
 
+{% tab title="CommonJS" %}
+```javascript
+const srm = require('secure-rm')
+```
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="Promise" %}
+```javascript
+srm('./folder/*.js')
+  .then(() => console.log('Files successfully deleted !'))
+  .catch((err) => {throw err})
+```
+{% endtab %}
+
+{% tab title="Callback" %}
 ```javascript
 const srm = require('secure-rm')
 
@@ -24,19 +46,31 @@ srm('./folder/*.js', (err) => {
   console.log('Files successfully deleted !')
 })
 ```
-
-### Promise version
-
-```javascript
-const srm = require('secure-rm')
-
-srm('./folder/*.js')
-  .then(() => console.log('Files successfully deleted !'))
-  .catch((err) => {throw err})
-```
+{% endtab %}
+{% endtabs %}
 
 ## Examples:
 
+{% tabs %}
+{% tab title="Promise" %}
+```javascript
+const options = {
+  standard: 'gutmann',
+  maxBusyTries: 5,
+  disableGlob: true
+}
+
+srm('./data/*.js', options)
+  .then(() => console.log('Files successfully deleted !'))
+  .catch((err) => {throw err})
+
+srm('./trash/dir/', { standard: 'preview' })
+  .then((fileTree) => console.log('Files that would be deleted:' + fileTree))
+  .catch((err) => {throw err})
+```
+{% endtab %}
+
+{% tab title="Callback" %}
 ```javascript
 const options = {
   standard: 'gutmann',
@@ -54,6 +88,8 @@ srm('./trash/dir/', { standard: 'preview' }, (err, fileTree) => {
   console.log('Files that would be deleted:' + fileTree)
 })
 ```
+{% endtab %}
+{% endtabs %}
 
 ## The `srm` Object
 
@@ -74,11 +110,19 @@ srm.validIDs
 
 Or you can import each property:
 
+{% tabs %}
+{% tab title="ES6" %}
 ```javascript
 import srm, { event, /* ... */, validIDs, Standard } from 'secure-rm'
-// Or
+```
+{% endtab %}
+
+{% tab title="CommonJS" %}
+```javascript
 const { event, /* ... */, validIDs, Standard } = require('secure-rm')
 ```
+{% endtab %}
+{% endtabs %}
 
 `srm` [\](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) : The main function, as described [under]().
 
