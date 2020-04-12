@@ -9,14 +9,11 @@ description: >-
 ## 📘Usage
 
 ```javascript
-const options = {
-  standard: 'gutmann'
-}
+const standard = srm.standards./*ID*/
 
-srm('./data/*.js', options, (err) => {
-  if (err) throw err
-  console.log('Files successfully deleted !')
-})
+srm.remove('./data/file.js', { standard })
+  .then(() => console.log('Files successfully deleted !'))
+  .catch(console.error)
 ```
 
 ## Preview
@@ -25,17 +22,14 @@ Returns targeted files without deleting them.
 
 | ID | Passes |
 | :--- | ---: |
-| `preview` | `1` |
+| `mark` | `0` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .log()
-    .compile,
-  rmdirStandard: new RmDir()
-    .log()
-    .compile
-}
+// unlink function
+await file.markFile(path)
+
+// rmdir function
+await dir.markFolder(path)
 ```
 
 ### Pseudorandom data
@@ -47,11 +41,10 @@ Also kwown as "Australian Information Security Manual Standard ISM 6.2.92" and "
 | `randomData` | `1` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .random()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.random(fileData)
+await file.end(fileData)
 ```
 
 ### Pseudorandom byte
@@ -63,11 +56,10 @@ Overwriting with a random byte.
 | `randomByte` | `1` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .randomByte()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.randomByte(fileData)
+await file.end(fileData)
 ```
 
 ### Zeroes
@@ -79,11 +71,10 @@ Overwriting with zeroes.
 | `zeroes` | `1` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .zeroes()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.zeros(fileData)
+await file.end(fileData)
 ```
 
 ### Ones
@@ -95,11 +86,10 @@ Overwriting with ones.
 | `ones` | `1` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .ones()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.ones(fileData)
+await file.end(fileData)
 ```
 
 ### **Secure-rm standard**
@@ -115,13 +105,17 @@ Pass 3: Truncating between 25% and 75% of the file.
 | `secure` | `3` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .random()
-    .rename()
-    .truncate()
-    .unlink()
-}
+// unlink function
+let fileData = await file.init(path)
+await file.random(fileData)
+fileData = await file.rename(fileData)
+await file.truncate(fileData)
+await file.resetTimestamps(fileData)
+await file.end(fileData)
+
+// rmdir function
+path = await dir.rename(path)
+await dir.end(path)
 ```
 
 ### Russian State Standard GOST R50739-95
@@ -135,12 +129,11 @@ Pass 2: Overwriting with random data.
 | `GOST_R50739-95` | `2` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .zeroes()
-    .random()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.zeros(fileData)
+await file.random(fileData)
+await file.end(fileData)
 ```
 
 ### British HMG Infosec Standard 5
@@ -158,13 +151,12 @@ Pass 3: Overwriting with random data as well as verifying the writing of this da
 | `HMG_IS5` | `3` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .zeroes()
-    .ones()
-    .random()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.zeros(fileData)
+await file.ones(fileData)
+await file.random(fileData)
+await file.end(fileData)
 ```
 
 ### US Army AR380-19
@@ -180,13 +172,12 @@ Pass 3: Overwriting with the complement of the 2nd pass, and verifying the writi
 | `AR380-19` | `3` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .random()
-    .randomByte()
-    .complementary()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.random(fileData)
+await file.randomByte(fileData)
+await file.complementary(fileData)
+await file.end(fileData)
 ```
 
 ### Standard of the Federal Office for Information Security \(BSI-VSITR\)
@@ -206,17 +197,16 @@ Pass 7: Overwriting with a random data as well as review the writing of this cha
 | `VSITR` | `7` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .zeroes()
-    .ones()
-    .zeroes()
-    .ones()
-    .zeroes()
-    .ones()
-    .random()
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.zeros(fileData)
+await file.ones(fileData)
+await file.zeros(fileData)
+await file.ones(fileData)
+await file.zeros(fileData)
+await file.ones(fileData)
+await file.random(fileData)
+await file.end(fileData)
 ```
 
 ### Bruce Schneier Algorithm
@@ -229,16 +219,15 @@ Pass 3-7: Overwriting with random data.
 
 | ID | Passes |
 | :--- | ---: |
-| `randomByte` | `7` |
+| `schneier` | `7` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .zeroes()
-    .ones()
-    .random(5)
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.zeros(fileData)
+await file.ones(fileData)
+await file.random(fileData, { passes: 5 })
+await file.end(fileData)
 ```
 
 ### Pfitzner Method
@@ -250,11 +239,10 @@ Pass 1-33: Overwriting with random data.
 | `pfitzner` | `33` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .random(33)
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.random(fileData, { passes: 33 })
+await file.end(fileData)
 ```
 
 ### Peter Gutmann Algorithm
@@ -280,23 +268,22 @@ Pass 32-35: Overwriting with random data.
 | `gutmann` | `35` |
 
 ```javascript
-{
-  unlinkStandard: new Unlink()
-    .random(4)
-    .byte(0x55)
-    .byte(0xAA)
-    .byteArray([0x92, 0x49, 0x24])
-    .byteArray([0x49, 0x24, 0x92])
-    .byteArray([0x24, 0x92, 0x49])
-    .forByte({ init: 0x00, condition: i => i < 0xFF, increment: i => i + 0x11 })
-    .byteArray([0x92, 0x49, 0x24])
-    .byteArray([0x49, 0x24, 0x92])
-    .byteArray([0x24, 0x92, 0x49])
-    .byteArray([0x6D, 0xB6, 0xDB])
-    .byteArray([0xB6, 0xDB, 0x6D])
-    .byteArray([0xDB, 0x6D, 0xB6])
-    .random(4)
-    .unlink()
-}
+// unlink function
+const fileData = await file.init(path)
+await file.random(fileData, { passes: 4 })
+await file.byte(fileData, { data: 0x55 })
+await file.byte(fileData, { data: 0xAA })
+await file.byteArray(fileData, { data: [0x92, 0x49, 0x24] })
+await file.byteArray(fileData, { data: [0x49, 0x24, 0x92] })
+await file.byteArray(fileData, { data: [0x24, 0x92, 0x49] })
+await file.forByte(fileData, { initial: 0x00, condition: i => i < 0xFF, increment: i => i + 0x11 })
+await file.byteArray(fileData, { data: [0x92, 0x49, 0x24] })
+await file.byteArray(fileData, { data: [0x49, 0x24, 0x92] })
+await file.byteArray(fileData, { data: [0x24, 0x92, 0x49] })
+await file.byteArray(fileData, { data: [0x6D, 0xB6, 0xDB] })
+await file.byteArray(fileData, { data: [0xB6, 0xDB, 0x6D] })
+await file.byteArray(fileData, { data: [0xDB, 0x6D, 0xB6] })
+await file.random(fileData, { passes: 4 })
+await file.end(fileData)
 ```
 

@@ -8,8 +8,8 @@
 * [Standards](core/standards.md)
 * [Advanced](core/advanced.md)
 * [Custom Standard](core/custom-standard/README.md)
-  * [Unlink Methods](core/custom-standard/unlink-methods.md)
-  * [RmDir Methods](core/custom-standard/rmdir-methods.md)
+  * [File Methods](core/custom-standard/file-methods.md)
+  * [Directories Methods](core/custom-standard/dir-methods.md)
 * [Events](core/events.md)
 * [Troubleshooting](core/troubleshooting.md)
 

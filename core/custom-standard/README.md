@@ -9,59 +9,62 @@ description: >-
 ## 📘 Usage
 
 ```javascript
-const unlinkStandard = new srm.Unlink()
-  .log()
-  .random()
-  .then(function (file, fileSize) {
-    return new Promise((resolve, reject) => {
-      if (file === 'test.js')
-        reject(new Error())
-      else
-        resolve({ file, fileSize })
-    })
-  })
-  .ones()
-  .unlink()
-
-const rmdirStandard = new srm.rmDir()
-  .log()
-  .rmDir()
-
-const options = {
-  customStandard: new srm.Standard({
-    unlinkStandard,
-    rmdirStandard
-  })
+const unlink = function (path, cb) {
+  const remove = async () => {
+    const fileData = await file.init(path)
+    await file.random(fileData)
+    // other functions
+    await file.end(fileData)
+  }
+  remove().then(_ => cb(null)).catch(cb)
 }
 
-srm('./*', options, (err, fileTree) => {
-  if (err) throw err
-  console.log(`Successfully removed ${fileTree} !`)
-})
+const rmdir = function (path, cb) {
+  const remove = async () => {
+    path = await dir.rename(path)
+    // other functions
+    await dir.end(path)
+  }
+  remove().then(_ => cb(null)).catch(cb)
+}
+
+const options = {
+  standard: {
+    unlink,
+    rmdir
+  }
+}
+
+srm.remove('./folder/', options)
+  .then(() => console.log('Files successfully deleted !'))
+  .catch(console.error)
 ```
 
-Use the classes `Unlink` and `rmDir` to construct your standard. Browse all the functions here:
+{% page-ref page="file-methods.md" %}
 
-{% page-ref page="unlink-methods.md" %}
-
-{% page-ref page="rmdir-methods.md" %}
+{% page-ref page="dir-methods.md" %}
 
 Another possibility is to add your standard to the `srm.standards` object to retrieve it at any time and add properties:
 
 ```javascript
-srm.standards.myStandardName = new Standard({
-  name: 'My Standard Name',
-  passes: 3,
-  description: 'My standard description!',
-  unlinkStandard: new Unlink()
-    .log()
-    .random()
-    .rename()
-    .ones()
-    .unlink(),
-  rmdirStandard: new RmDir()
-    .log()
-    .rmDir()
-})
+srm.standards.myStandardName = {
+  unlink: function (path, cb) {
+    const remove = async () => {
+      const fileData = await file.init(path)
+      await file.random(fileData)
+      // other functions
+      await file.end(fileData)
+    }
+    remove().then(_ => cb(null)).catch(cb)
+  },
+  rmdir: function (path, cb) {
+    const remove = async () => {
+      path = await dir.rename(path)
+      // other functions
+      await dir.end(path)
+    }
+    remove().then(_ => cb(null)).catch(cb)
+  }
+}
 ```
 
