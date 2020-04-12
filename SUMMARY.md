@@ -16,6 +16,6 @@
 ## CLI
 
 * [Getting Started](cli/untitled.md)
-* [About](about.md)
+* [About](cli/about.md)
 * [Back to main website](https://www.secure-rm.com)
 

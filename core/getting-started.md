@@ -31,15 +31,15 @@ If you want your application to delete specific files with a pass of cryptograph
 {% tabs %}
 {% tab title="Promise" %}
 ```javascript
-srm('./folder/*.js')
+srm.remove('./folder/file.js')
   .then(() => console.log('Files successfully deleted !'))
-  .catch((err) => {throw err})
+  .catch(console.error)
 ```
 {% endtab %}
 
 {% tab title="Callback" %}
 ```javascript
-srm('./folder/*.js', (err) => {
+srm.remove('./folder/file.js', (err) => {
   if (err) throw err
   console.log('Files successfully deleted !')
 })
@@ -47,20 +47,20 @@ srm('./folder/*.js', (err) => {
 {% endtab %}
 {% endtabs %}
 
-Path can be a directory, a file or a [glob pattern](https://www.npmjs.com/package/glob). Match files using the patterns the shell uses, like stars and stuff.
+Path can be a directory or a file.
 
 ## ⚙️Using options
 
-You can set options in the `srm` function:
+You can set options in the `srm.remove` function:
 
 {% tabs %}
 {% tab title="Promise" %}
 ```javascript
 const options = { /*...*/ }
 
-srm('./data/*.js', options)
+srm.remove('./data/file.js', options)
   .then(() => console.log('Files successfully deleted !'))
-  .catch((err) => {throw err})
+  .catch(console.error)
 ```
 {% endtab %}
 
@@ -68,7 +68,7 @@ srm('./data/*.js', options)
 ```javascript
 const options = { /*...*/ }
 
-srm('./data/*.js', options, (err) => {
+srm.remove('./data/file.js', options, (err) => {
   if (err) throw err
   console.log('Files successfully deleted !')
 })
@@ -81,32 +81,28 @@ srm('./data/*.js', options, (err) => {
 {% tabs %}
 {% tab title="Promise" %}
 ```javascript
-const options = {
-  standard: 'gutmann'
-}
+const standard = srm.standards.gutmann
 
-srm('./data/*.js', options)
+srm.remove('./data/file.js', { standard })
   .then(() => console.log('Files successfully deleted !'))
-  .catch((err) => {throw err})
+  .catch(console.error)
 
-srm('./trash/dir/', { standard: 'preview' })
-  .then((fileTree) => console.log('Files that would be deleted:' + fileTree))
-  .catch((err) => {throw err})
+srm.remove('./trash/dir/', { standard: srm.standards.schneier })
+  .then(() => console.log('Files successfully deleted !'))
+  .catch(console.error)
 ```
 {% endtab %}
 
 {% tab title="Callback" %}
 ```javascript
-const options = {
-  standard: 'gutmann'
-}
+const standard = srm.standards.gutmann
 
-srm('./data/*.js', options, (err) => {
+srm.remove('./data/file.js', { standard }, (err) => {
   if (err) throw err
   console.log('Files successfully deleted !')
 })
 
-srm('./trash/dir/', { standard: 'preview' }, (err, fileTree) => {
+srm.remove('./trash/dir/', { standard: srm.standards.schneier }, (err, fileTree) => {
   if (err) throw err
   console.log('Files that would be deleted:' + fileTree)
 })
@@ -122,25 +118,22 @@ srm('./trash/dir/', { standard: 'preview' }, (err, fileTree) => {
 {% tab title="Promise" %}
 ```javascript
 const options = {
-  maxBusyTries: 5,
-  disableGlob: true,
-  customStandard: new srm.Standard(/*...*/)
+  maxBusyTries: 5
 }
 
-srm('./data/*.js', options)
+srm.remove('./data/file.js', options)
   .then(() => console.log('Files successfully deleted !'))
-  .catch((err) => {throw err})
+  .catch(console.error)
 ```
 {% endtab %}
 
 {% tab title="Callback" %}
 ```javascript
 const options = {
-  maxBusyTries: 5,
-  disableGlob: true
+  maxBusyTries: 5
 }
 
-srm('./data/*.js', options, (err) => {
+srm.remove('./data/file.js', options, (err) => {
   if (err) throw err
   console.log('Files successfully deleted !')
 })
@@ -148,17 +141,9 @@ srm('./data/*.js', options, (err) => {
 {% endtab %}
 {% endtabs %}
 
-#### **emfileWait**
+**maxBusyTries**
 
 If an `EBUSY`, `ENOTEMPTY`, or `EPERM` error code is encountered on Windows systems, then secure-rm will retry with a linear backoff wait of 100ms longer on each try. The default maxBusyTries is 3.
-
-#### **disableGlob**
-
-Set to any non-falsey value to disable globbing entirely.
-
-#### **customStandard**
-
-Create your own standard using the different methods provided or even your own.
 
 {% page-ref page="custom-standard/" %}
 
