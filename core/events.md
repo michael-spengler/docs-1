@@ -6,7 +6,7 @@ You can indeed intercept events for _each_ file.
 
 ```javascript
 srm.event.on('mark', (file) => console.log('File / directory reached: ' + file))
-srm.event.on('removed', (file) => console.log('File / directory remvoved: ' + file))
+srm.event.on('removed', (file) => console.log('File / directory removed: ' + file))
 
 srm.event.on('done', (path) => console.log('Process done. ' + path))
 ```
