@@ -1,4 +1,4 @@
-# Introduction
+# ❓ Introduction
 
 ![](.gitbook/assets/card.png)
 
@@ -11,7 +11,7 @@ Permanent data erasure goes beyond basic file deletion commands, which:
 1. Allow for selection of a specific standard, based on unique needs,
 2. Verify the overwriting method has been successful and removed data across the entire device.
 
-## How It Works
+## How It Works 
 
 The basic principle is to write files before deletion in order to make recovery harder. With secure-rm, you get to choose the standard that follow your needs. Each one is composed of instructions about how many passes it should perform.
 
